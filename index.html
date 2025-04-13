@@ -1,0 +1,64 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      padding: 30px;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: auto;
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    #todoInput {
+      width: 70%;
+      padding: 10px;
+      margin-right: 10px;
+    }
+
+    #addBtn {
+      padding: 10px 15px;
+    }
+
+    #todoList li {
+      margin-top: 10px;
+      list-style: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📝 Todo List</h1>
+    <input id="todoInput" type="text" placeholder="Add todo">
+    <button id="addBtn">Add</button>
+    <ul id="todoList"></ul>
+  </div>
+
+  <script>
+    const input = document.getElementById('todoInput');
+    const addBtn = document.getElementById('addBtn');
+    const list = document.getElementById('todoList');
+
+    addBtn.addEventListener('click', () => {
+      const task = input.value.trim();
+      if (task !== '') {
+        const li = document.createElement('li');
+        li.textContent = task;
+        list.appendChild(li);
+        input.value = '';
+      }
+    });
+  </script>
+</body>
+</html>
+
